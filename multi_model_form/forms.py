@@ -23,7 +23,7 @@ def multi_model_form_generator(main_model, related=[]):
                             self.fields["%s__%s"%(model_name, field_name)].initial = getattr(obj, field_name)
         def save(self, *args, **kwargs):
             for model_name, Model in related:
-                if hasattr(self.instance, model_name):
+                if hasattr(self.instance, model_name) and getattr(self.instance, model_name):
                     obj = getattr(self.instance, model_name)
                 else:
                     obj = Model()
