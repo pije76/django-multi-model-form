@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "django-multi-model-form",
-    version = "1.0.0",
+    version = "1.0.1",
     url = 'http://ondrejsika.com/docs/django-multi-model-form/',
     download_url = 'https://github.com/sikaondrej/django-multi-model-form/',
     license = 'GNU LGPL v.3',
