@@ -18,8 +18,9 @@ def multi_model_form_generator(main_model, related=[]):
                 form = get_model_form(Model)()
                 if hasattr(self.instance, model_name):
                     obj = getattr(self.instance, model_name)
-                    for field_name, field in zip(form.fields.keys(), form.fields.values()):
-                        self.fields["%s__%s"%(model_name, field_name)].initial = getattr(obj, field_name)
+                    if obj:
+                        for field_name, field in zip(form.fields.keys(), form.fields.values()):
+                            self.fields["%s__%s"%(model_name, field_name)].initial = getattr(obj, field_name)
         def save(self, *args, **kwargs):
             for model_name, Model in related:
                 if hasattr(self.instance, model_name):
