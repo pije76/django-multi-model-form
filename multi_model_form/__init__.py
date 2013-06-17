@@ -1,0 +1,1 @@
+from forms import multi_model_form_generator
