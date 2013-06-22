@@ -36,7 +36,10 @@ def multi_model_form_generator(main_model, related=[]):
                     obj = Model()
                 form = get_model_form(Model)()
                 for field_name, field in zip(form.fields.keys(), form.fields.values()):
-                    setattr(obj, field_name, self.cleaned_data["%s__%s"%(model_name, field_name)])
+                    try:
+                        setattr(obj, field_name, self.cleaned_data["%s__%s"%(model_name, field_name)])
+                    except KeyError:
+                        pass
                 obj.save()
                 setattr(self.instance, model_name, obj)
             return super(MultiModelForm, self).save(*args, **kwargs)
