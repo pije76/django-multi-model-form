@@ -21,6 +21,13 @@ def multi_model_form_generator(main_model, related=[]):
                     if obj:
                         for field_name, field in zip(form.fields.keys(), form.fields.values()):
                             self.fields["%s__%s"%(model_name, field_name)].initial = getattr(obj, field_name)
+            try:
+                if self.Meta.fields:
+                    for field in self.fields.keys():
+                        if not field in self.Meta.fields:
+                            self.fields.pop(field)
+            except AttributeError:
+                pass
         def save(self, *args, **kwargs):
             for model_name, Model in related:
                 if hasattr(self.instance, model_name) and getattr(self.instance, model_name):
@@ -37,3 +44,4 @@ def multi_model_form_generator(main_model, related=[]):
             model = main_model
             exclude = [field_name for field_name, field in related]
     return MultiModelForm
+
