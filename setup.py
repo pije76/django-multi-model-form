@@ -6,9 +6,9 @@ from setuptools import setup, find_packages
 setup(
     name = "django-multi-model-form",
     version = "1.0.2",
-    url = 'https://github.com/sikaondrej/django-multi-model-form/',
+    url = 'https://github.com/ondrejsika/django-multi-model-form/',
     license = 'GNU LGPL v.3',
-    description = "",
+    description = open("README.md"),
     author = 'Ondrej Sika',
     author_email = 'ondrej@ondrejsika.com',
     packages = find_packages(),
