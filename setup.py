@@ -8,7 +8,7 @@ setup(
     version = "1.1.0",
     url = 'https://github.com/ondrejsika/django-multi-model-form/',
     license = 'GNU LGPL v.3',
-    description = open("README.md"),
+    description = "",
     author = 'Ondrej Sika',
     author_email = 'ondrej@ondrejsika.com',
     packages = find_packages(),
