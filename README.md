@@ -29,7 +29,7 @@ myapp/models.py
 
     from django.db import models
 
-    class MainModel(models.Model):
+    class RelatedModel(models.Model):
         a = models.IntegerField()
         b = models.IntegerField()
         c = models.IntegerField()
